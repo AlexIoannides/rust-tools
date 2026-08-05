@@ -20,5 +20,5 @@ pub fn greeting() -> String {
 fn greeting_returns_message() {
     let expected = String::from("Hello, world!");
     let actual = greeting();
-    assert!(actual == expected, "expected greeting to be \"{expected}\", got \"{actual}\"");
+    assert_eq!(actual, expected, "expected greeting to be \"{expected}\", got \"{actual}\"");
 }
