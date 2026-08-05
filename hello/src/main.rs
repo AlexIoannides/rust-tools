@@ -1,9 +1,10 @@
 //! The executable entry point for the hello example.
 //!
-//! This binary delegates its behaviour to the library's `print` function.
+//! This binary delegates its behaviour to the library's `greeting` function.
 
-use hello::print;
+use hello::greeting;
 
 fn main() {
-    print();
+    let msg = greeting();
+    println!("{msg}");
 }

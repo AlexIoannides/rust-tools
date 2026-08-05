@@ -3,15 +3,22 @@
 //! This project demonstrates the standard layout for a minimal library and
 //! binary pair, where the binary reuses functionality from the library.
 
-/// Prints the project's greeting message to standard output.
+/// Returns a greeting message.
 ///
 /// # Examples
 ///
 /// ```
-/// use hello::print;
+/// use hello::greeting;
 ///
-/// print();
+/// assert_eq!(greeting(), "Hello, world!");
 /// ```
-pub fn print() {
-    println!("Hello, world");
+pub fn greeting() -> String {
+    String::from("Hello, world!")
+}
+
+#[test]
+fn greeting_returns_message() {
+    let expected = String::from("Hello, world!");
+    let actual = greeting();
+    assert!(actual == expected, "expected greeting to be \"{expected}\", got \"{actual}\"");
 }

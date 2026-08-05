@@ -1,2 +1,3 @@
 # rust-tools
-Examples and exercises from 'The Secrets of Rust: Tools' by John Arundel
+
+Examples and exercises from 'The Secrets of Rust: Tools' by John Arundel.
