@@ -3,10 +3,11 @@
 //! Run this with `echo YOUR\nINPUT | cargo run` or `cargo run << 'EOF'`.
 //! So that the stdin stream receives the EOF signal.
 
-use std::io::{stdin, BufRead};
+use std::io::stdin;
+
+use count::count_lines;
 
 fn main() {
-    let input = stdin().lock();
-    let line_count = input.lines().count();
-    println!("{line_count} lines")
+    let lc = count_lines(stdin().lock());
+    println!("{lc} lines")
 }
