@@ -9,5 +9,8 @@ use count::count_lines;
 
 fn main() {
     let lc = count_lines(stdin().lock());
-    println!("{lc} lines")
+    match lc {
+        Ok(n) => println!("{n} lines"),
+        Err(msg)=> println!("ERROR: {msg}"),
+    }
 }
