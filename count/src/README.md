@@ -1,3 +1,0 @@
-# Example Crate: count
-
-TODO
