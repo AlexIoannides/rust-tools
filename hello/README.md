@@ -2,22 +2,27 @@
 
 A minimal Rust library and binary demonstrating a simple greeting function.
 
-Build and run the example:
+Build the example:
 
-```bash
+```text
 cargo build --release
+```
+
+Run the example:
+
+```text
 ./target/release/hello
 ```
 
 Run tests:
 
-```bash
+```text
 cargo test
 ```
 
 Generate and view documentation locally:
 
-```bash
+```text
 cargo doc --open
 ```
 
