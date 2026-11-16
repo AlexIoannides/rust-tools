@@ -1,4 +1,4 @@
-use std::{env, process};
+use std::{env, fs, process};
 
 fn main() {
     let Some(path) = env::args().nth(1) else {
@@ -6,5 +6,12 @@ fn main() {
         process::exit(1);
     };
 
-    println!("path = {:?}", path);
+    let file = match fs::File::open(&path) {
+        Ok(file) => file,
+        Err(e) => {
+            eprint!("{e}");
+            process::exit(1);
+        },
+    };
+    println!("{:?}", file)
 }
