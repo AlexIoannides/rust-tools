@@ -2,10 +2,9 @@ use std::{env, fs, io, process};
 
 use count::count_lines;
 
-fn main() {
+fn main() -> Result<(), &'static str> {
     let Some(path) = env::args().nth(1) else {
-        eprintln!("USAGE: count <FILE>");
-        process::exit(1);
+        return Err("USAGE: count <FILE>");
     };
 
     let file = fs::File::open(&path).unwrap_or_else(
@@ -19,4 +18,5 @@ fn main() {
         Ok(n) => println!("{n} lines"),
         Err(msg)=> println!("ERROR: {msg}"),
     }
+    Ok(())
 }
