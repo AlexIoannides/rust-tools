@@ -1,22 +1,13 @@
-use std::{env, fs, io, process};
+use std::{env, fs, io};
 
 use count::count_lines;
 
-fn main() -> Result<(), &'static str> {
-    let Some(path) = env::args().nth(1) else {
-        return Err("USAGE: count <FILE>");
-    };
-
-    let file = fs::File::open(&path).unwrap_or_else(
-        |e| {
-            eprint!("{e}");
-            process::exit(1);
-        }
-    );
-    let lines = count_lines(io::BufReader::new(file));
-    match lines {
-        Ok(n) => println!("{n} lines"),
-        Err(msg)=> println!("ERROR: {msg}"),
-    }
+fn main() -> io::Result<()> {
+    let path = env::args()
+        .nth(1)
+        .ok_or(io::Error::other("USAGE: count <FILE>"))?;
+    let file = fs::File::open(&path)?;
+    let n_lines = count_lines(io::BufReader::new(file))?;
+    println!("{n_lines} lines");
     Ok(())
 }
